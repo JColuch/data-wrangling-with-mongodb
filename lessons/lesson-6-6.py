@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import xml.etree.ElementTree as ET
-import pprint
-import re
-import codecs
-import json
+
 """
 Your task is to wrangle the data and transform the shape of the data
 into the model we mentioned earlier. The output should be a list of dictionaries
@@ -84,6 +80,15 @@ In particular the following things should be done:
 should be turned into
 "node_refs": ["305896090", "1719825889"]
 """
+
+
+import xml.etree.ElementTree as ET
+import pprint
+import re
+import codecs
+import json
+
+
 lower = re.compile(r'^([a-z]|_)*$')
 lower_colon = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
 problemchars = re.compile(r'[=\+/&<>;\'"\?%#$@\,\. \t\r\n]')
@@ -147,6 +152,7 @@ def process_elem_attributes(node, element):
 
     return node
 
+
 def process_elem_sub_attributes(node, element):
     sub_elements = element.getiterator()
 
@@ -158,6 +164,7 @@ def process_elem_sub_attributes(node, element):
             node = process_nd_tag(node, sub_elm)
     
     return node
+
 
 def process_tag_elem(node, sub_elem):
     k_val = sub_elem.attrib["k"]
@@ -186,6 +193,7 @@ def process_tag_elem(node, sub_elem):
 
     return node
 
+
 def is_compound_street_address(string):
     values = string.split(":")
     if len(values) > 2 and values[1] == "street":
@@ -193,9 +201,9 @@ def is_compound_street_address(string):
 
     return False
 
+
 def contains_bad_char(string):
     return re.search(problemchars, string)
-
 
 
 def process_nd_tag(node, sub_elm):
@@ -224,6 +232,7 @@ def process_map(file_in, pretty = False):
                     fo.write(json.dumps(el) + "\n")
     return data
 
+
 def test():
     # NOTE: if you are running this code on your computer, with a larger dataset, 
     # call the process_map procedure with pretty=False. The pretty=True option adds 
@@ -251,6 +260,7 @@ def test():
                                       }
     assert data[-1]["node_refs"] == [ "2199822281", "2199822390",  "2199822392", "2199822369", 
                                     "2199822370", "2199822284", "2199822281"]
+
 
 if __name__ == "__main__":
     test()

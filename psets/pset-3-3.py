@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
 In this problem set you work with cities infobox data, audit it, come up with a cleaning idea and then clean it up.
 
@@ -12,10 +13,13 @@ You have to change the function fix_area. You can use extra functions if you lik
 will not be taken into account.
 The rest of the code is just an example on how this function can be used.
 """
+
+
 import codecs
 import csv
 import json
 import pprint
+
 
 CITIES = 'cities.csv'
 
@@ -37,34 +41,33 @@ def is_float(value):
 
 
 def fix_area(area):
-    # Based on our audit research we know our dataset has 3 types for area
-    # Now we can target those 3 types
-    #Handle str
+    # Based on our audit research we know our dataset has 3 types for area.
+    # Now we can target those 3 types.
+    # Handle str
     if is_float(area):
         area = float(area)
-    #Handle list
+    # Handle list.
     elif area.strip().startswith("{"):
-        #Strip brackets
+        # Strip brackets.
         area = area.replace("{","")
         area = area.replace("}", "")
 
-        #Split string
+        # Split string.
         val_one, val_two = area.split("|")
 
         if len(val_one) > len(val_two):
             area = float(val_one)
         else:
             area = float(val_two)
-    #Handle NoneType
+    # Handle NoneType.
     else:
         area = None
 
     return area
 
 
-
 def process_file(filename):
-    # CHANGES TO THIS FUNCTION WILL BE IGNORED WHEN YOU SUBMIT THE EXERCISE
+    # CHANGES TO THIS FUNCTION WILL BE IGNORED WHEN YOU SUBMIT THE EXERCISE.
     data = []
 
     with open(filename, "r") as f:

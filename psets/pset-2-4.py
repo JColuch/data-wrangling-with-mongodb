@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 # This and the following exercise are using US Patent database.
 # The patent.data file is a small excerpt of a much larger datafile
 # that is available for download from US Patent website. They are pretty large ( >100 MB each).
@@ -9,9 +10,12 @@
 # For quiz purposes it does not matter, but as an exercise we suggest that you try to do it programmatically.
 # The original file is ~600MB large, you might not be able to open it in a text editor.
 
+
 import xml.etree.ElementTree as ET
 
+
 PATENTS = 'patent.data'
+
 
 def get_root(fname):
 
@@ -19,4 +23,5 @@ def get_root(fname):
     return tree.getroot()
 
 
-get_root(PATENTS)
+if __name__ == '__main__':
+    get_root(PATENTS)

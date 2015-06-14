@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
 In this problem set you work with another type of infobox data, audit it, clean it, 
 come up with a data model, insert it into a MongoDB and then run some queries against your database.
@@ -35,14 +36,17 @@ The following things should be done:
   * Note that the value associated with the classification key is a dictionary with
     taxonomic labels.
 """
+
+
 import codecs
 import csv
 import json
 import pprint
 import re
 
+
 DATAFILE = 'arachnid.csv'
-FIELDS ={'rdf-schema#label': 'label',
+FIELDS = {'rdf-schema#label': 'label',
          'URI': 'uri',
          'rdf-schema#comment': 'description',
          'synonym': 'synonym',
@@ -56,6 +60,7 @@ FIELDS ={'rdf-schema#label': 'label',
 
 regex_paren = r"(\(.*\))"
 
+
 def process_file(filename, fields):
     process_fields = fields.keys()
     data = []
@@ -68,23 +73,25 @@ def process_file(filename, fields):
         for line in reader:
             doc = {}
             doc["classification"] = {}
-            #Build mapped dictionary
+            # Build mapped dictionary.
             for field in fields:
                 if field in line:
-                    #Get field to be set
+                    # Get field to be set.
                     mapped_field = fields[field]
     
-                    #Clean DATA
+                    # Clean DATA.
                     value = line[field].strip()
 
-                    #CHECK 1 - COMPLETE
-                    #trim out redundant description in parenthesis from the 'rdf-schema#label' field, like "(spider)"
+                    # CHECK 1 - COMPLETE
+                    # Trim out redundant description in parenthesis from the
+                    # 'rdf-schema#label' field, like "(spider)".
                     if field == "rdf-schema#label":
-                        #REGEX to remove items in ()
+                        # REGEX to remove items in ().
                         value = re.sub(regex_paren, '', value).strip()
                     
-                    #CHECK 2
-                    # - if 'name' is "NULL" or contains non-alphanumeric characters, set it to the same value as 'label'.
+                    # CHECK 2
+                    # - if 'name' is "NULL" or contains non-alphanumeric characters,
+                    #   set it to the same value as 'label'.
                     if field == "name":
                         if value == "NULL" or value.isalnum() == False:
                             value = doc["label"]
@@ -101,6 +108,7 @@ def process_file(filename, fields):
                         doc[mapped_field] = value
 
             data.append(doc)
+
     return data
 
 
@@ -139,6 +147,7 @@ def test():
     assert data[17]["name"] == "Ogdenia"
     assert data[48]["label"] == "Hydrachnidiae"
     assert data[14]["synonym"] == ["Cyrene Peckham & Peckham"]
+
 
 if __name__ == "__main__":
     test()

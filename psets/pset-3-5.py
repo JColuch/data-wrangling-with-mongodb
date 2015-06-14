@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
 In this problem set you work with cities infobox data, audit it, come up with a cleaning idea and then clean it up.
 
@@ -12,9 +13,12 @@ of all the names. If there is only one name, the list with have only one item in
 the list should be empty.
 The rest of the code is just an example on how this function can be used
 """
+
+
 import codecs
 import csv
 import pprint
+
 
 CITIES = 'cities.csv'
 
@@ -26,7 +30,7 @@ def fix_name(name):
     if name == "NULL":
         name_list = []
     elif name.strip().startswith("{"):
-        #Clear spaces, brackets
+        # Clear spaces, brackets.
         data = name.strip()[1:-1]
         name_list = data.split("|")
     else:
@@ -35,17 +39,16 @@ def fix_name(name):
     return name_list
 
 
-
 def process_file(filename):
     data = []
     with open(filename, "r") as f:
         reader = csv.DictReader(f)
-        #skipping the extra metadata
+        # Skipping the extra metadata.
         for i in range(3):
             l = reader.next()
-        # processing file
+        # Processing file.
         for line in reader:
-            # calling your function to fix the area value
+            # Calling your function to fix the area value.
             if "name" in line:
                 line["name"] = fix_name(line["name"])
             data.append(line)
@@ -62,6 +65,7 @@ def test():
     assert data[14]["name"] == ['Negtemiut', 'Nightmute']
     assert data[9]["name"] == ['Pell City Alabama']
     assert data[3]["name"] == ['Kumhari']
+
 
 if __name__ == "__main__":
     test()

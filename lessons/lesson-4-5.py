@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+
 from autos import process_file
 
 
@@ -10,7 +13,6 @@ def insert_autos(infile, db):
     db.autos.insert(autos)
 
 
-  
 if __name__ == "__main__":
     # For local use
     from pymongo import MongoClient

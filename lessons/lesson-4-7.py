@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """ Your task is to write a query that will return all cars manufactured by 
 "Ford Motor Company"
 that are assembled in Germany, United Kingdom, or Japan.
@@ -9,6 +10,7 @@ If you want to run this code locally on your machine,
 you have to install MongoDB, download and insert the dataset.
 For instructions related to MongoDB setup and datasets please see Course Materials.
 """
+
 
 def get_db():
     from pymongo import MongoClient
@@ -25,7 +27,6 @@ def in_query():
 
 
 if __name__ == "__main__":
-
     db = get_db()
     query = in_query()
     autos = db.autos.find(query, {"name":1, "manufacturer":1, "assembly": 1, "_id":0})

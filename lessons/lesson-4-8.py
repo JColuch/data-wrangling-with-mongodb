@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """ Your task is to write a query that will return all cars with width dimension greater than 2.5
 Please modify only 'dot_query' function, as only that will be taken into account.
 
@@ -22,7 +23,6 @@ def dot_query():
 
 
 if __name__ == "__main__":
-
     db = get_db()
     query = dot_query()
     cars = db.cars.find(query)

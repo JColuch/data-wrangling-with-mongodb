@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 Your task is to sucessfully run the exercise to see how pymongo works
 and how easy it is to start using it.
@@ -10,14 +12,17 @@ you have to install MongoDB (see Instructor comments for link to installation in
 and uncomment the get_db function.
 """
 
+
 def add_city(db):
     # Changes to this function will be reflected in the output. 
     # All other functions are for local use only.
     # Try changing the name of the city to be inserted
     db.cities.insert({"name" : "Chicago"})
-    
+
+
 def get_city(db):
     return db.cities.find_one()
+
 
 def get_db():
     # For local use
@@ -26,6 +31,7 @@ def get_db():
     # 'examples' here is the database name. It will be created if it does not exist.
     db = client.examples
     return db
+
 
 if __name__ == "__main__":
     # For local use

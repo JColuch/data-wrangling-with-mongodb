@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 """
 Your task is to complete the 'porsche_query' function and in particular the query
 to find all autos where the manufacturer field matches "Porsche".
@@ -12,10 +13,12 @@ the following link:
 https://www.udacity.com/wiki/ud032
 """
 
+
 def porsche_query():
-    # Please fill in the query to find all autos manuafactured by Porsche
+    # Please fill in the query to find all autos manuafactured by Porsche.
     query = {'manufacturer': 'Porsche'}
     return query
+
 
 def get_db(db_name):
     # For local use
@@ -24,8 +27,9 @@ def get_db(db_name):
     db = client[db_name]
     return db
 
+
 def find_porsche(db, query):
-    # For local use
+    # For local use.
     return db.autos.find(query)
 
 

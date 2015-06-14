@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 # Let's assume that you combined the code from the previous 2 exercises
 # with code from the lesson on how to build requests, and downloaded all the data locally.
 # The files are in a directory "data", named after the carrier and airport:
@@ -21,11 +22,14 @@
 #         },
 #         {"courier": "..."}
 # ]
+
+
 from bs4 import BeautifulSoup
 from zipfile import ZipFile
 import os
 
-datadir = "data"
+
+DATADIR = "data"
 
 
 def open_zip(datadir):
@@ -56,7 +60,7 @@ def process_file(f):
     info = {}
     info["courier"], info["airport"] = f[:6].split("-")
     
-    with open("{}/{}".format(datadir, f), "r") as html:
+    with open("{}/{}".format(DATADIR, f), "r") as html:
 
         soup = BeautifulSoup(html)
         table_elm = soup.find("table", {"class": "dataTDRight"})
@@ -102,8 +106,8 @@ def process_file(f):
 
 def test():
     print "Running a simple test..."
-    open_zip(datadir)
-    files = process_all(datadir)
+    open_zip(DATADIR)
+    files = process_all(DATADIR)
     data = []
     for f in files:
         data += process_file(f)
@@ -118,6 +122,7 @@ def test():
     assert data[-1]["flights"] == {'international': 108289, 'domestic': 701425}
     
     print "... success!"
+
 
 if __name__ == "__main__":
     test()

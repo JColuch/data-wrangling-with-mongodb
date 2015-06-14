@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 # Please note that the function 'make_request' is provided for your reference
 # only.
 # You will not be able to to actually use it from within the Udacity web UI
@@ -11,26 +12,28 @@
 # the combination values, like "All U.S. Carriers" from the data that you return.
 # You should return a list of codes for the carriers.
 
+
 from bs4 import BeautifulSoup
-html_page = "options.html"
+
+
+HTML_PAGE = "options.html"
 
 
 def extract_carriers(page):
     data = []
 
     with open(page, "r") as html:
-        # do something here to find the necessary values
+        # Do something here to find the necessary values.
         soup = BeautifulSoup(html)
 
         carrier_select = soup.find(id="CarrierList")
    
-
         for child in carrier_select.contents:
             if child != "\n":
                 val = child["value"]
                 if len(val) < 3:
                     data.append(val)
-    print data
+
     return data
 
 
@@ -54,9 +57,11 @@ def make_request(data):
 
 
 def test():
-    data = extract_carriers(html_page)
+    data = extract_carriers(HTML_PAGE)
     assert len(data) == 16
     assert "FL" in data
     assert "NK" in data
 
-test()
+
+if __name__ == '__main__':
+    test()

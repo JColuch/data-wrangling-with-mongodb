@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 """
 In this problem set you work with another type of infobox data, audit it, clean it, 
 come up with a data model, insert it into a MongoDB and then run some queries against your database.
@@ -40,16 +41,20 @@ The resulting data should look like this:
 Note that the value in the 'binomialAuthority' field is a placeholder; this is only to 
 demonstrate the output structure form, for the entries that require updating.
 """
+
+
 import codecs
 import csv
 import json
 import pprint
 import re
 
+
 DATAFILE = 'arachnid.csv'
 FIELDS ={'rdf-schema#label': 'label',
          'binomialAuthority_label': 'binomialAuthority'}
 regex_paren = r"(\(.*\))"
+
 
 def add_field(filename, fields):
     process_fields = fields.keys()
@@ -74,6 +79,7 @@ def add_field(filename, fields):
                 data[rdf_value] = line[binomial_label]
 
     return data
+
 
 def update_db(data, db):
     # YOUR CODE HERE
@@ -101,7 +107,6 @@ def test():
 
     assert updated['classification']['binomialAuthority'] == 'Embrik Strand'
     pprint.pprint(data)
-
 
 
 if __name__ == "__main__":

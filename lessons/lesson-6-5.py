@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Your task in this exercise has two steps:
 
@@ -9,24 +12,23 @@ Your task in this exercise has two steps:
     The function takes a string with street name as an argument and should return the fixed name
     We have provided a simple test so that you see what exactly is expected
 """
+
+
 import xml.etree.cElementTree as ET
 from collections import defaultdict
 import re
 import pprint
 
+
 OSMFILE = "example.osm"
 street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
-
-
 expected = ["Street", "Avenue", "Boulevard", "Drive", "Court", "Place", "Square", "Lane", "Road", 
             "Trail", "Parkway", "Commons"]
-
-# UPDATE THIS VARIABLE
 mapping = { "St": "Street",
             "St.": "Street",
             "Ave": "Avenue",
             "Rd.": "Road"
-            }
+          }
 
 
 def audit_street_type(street_types, street_name):
