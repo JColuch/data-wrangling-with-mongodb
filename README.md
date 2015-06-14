@@ -1,4 +1,4 @@
-Conference Organization App
+Data Wrangling with MongoDB
 =====================
 ###Nanodegree Project
 School: Udacity
