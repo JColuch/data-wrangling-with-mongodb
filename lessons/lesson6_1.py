@@ -17,7 +17,7 @@ import pprint
 
 
 def count_tags(filename):
-     # YOUR CODE HERE
+    """Return dict of top level tags counts"""
     tags = {}
     for event, elem in ET.iterparse(filename):
         if elem.tag in tags:
@@ -29,17 +29,18 @@ def count_tags(filename):
 
 
 def test():
+    """Test count_tags function"""
     tags = count_tags('example.osm')
     pprint.pprint(tags)
     assert tags == {'bounds': 1,
-                     'member': 3,
-                     'nd': 4,
-                     'node': 20,
-                     'osm': 1,
-                     'relation': 1,
-                     'tag': 7,
-                     'way': 1}
-  
+                    'member': 3,
+                    'nd': 4,
+                    'node': 20,
+                    'osm': 1,
+                    'relation': 1,
+                    'tag': 7,
+                    'way': 1}
+
 
 if __name__ == "__main__":
     test()
