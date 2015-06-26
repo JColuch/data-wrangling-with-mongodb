@@ -12,14 +12,15 @@ The function process_map should return a set of unique user IDs ("uid")
 
 import xml.etree.ElementTree as ET
 import pprint
-import re
 
 
 def get_user(element):
+    """Return user tag from xml element"""
     return element.get("user")
 
 
 def process_map(filename):
+    """Process XML file for unique user ids"""
     users = set()
 
     for _, element in ET.iterparse(filename):
@@ -31,7 +32,7 @@ def process_map(filename):
 
 
 def test():
-
+    """Test process_map function"""
     users = process_map('example.osm')
     pprint.pprint(users)
     assert len(users) == 6
