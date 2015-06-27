@@ -17,16 +17,35 @@ You will choose any area of the world in https://www.openstreetmap.org and use d
 ###Project Depencies
 Python 2.7x
 
-###How To Explore Project
+###Final Project Review
 
 ###Task 1: Lesson 6 Programming Exercises
 ####Notes:
+Lesson 6 programming exercise solutions can be found in the lessons directory.
 
 ###Task 2: Process Dataset
 ####Notes:
+Map area: Somerville, Massachusetts, United States
+
+OpenStreetMap: [View Map](https://www.openstreetmap.org/relation/1933746#map=14/42.3954/-71.1037)
+
+Download source: [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.3681,-71.0645,42.4228)
 
 ###Task 3: Document Findings
-####Notes:
+####Problems encountered in map
 
-####Resources
+####Overview of the data
+* Size of XML file: 69.2 MB
+* Size of JSON file:
+* Number of unique users
+* Number of nodes:
+* Number of ways:
+* Breakdown of establishment types:
+  * Cafes:
+  * Restaurants:
+  * Bars:
+
+####Other ideas about the dataset
+
+###Resources
 All resources used/referenced are listed in the file resources.txt.
