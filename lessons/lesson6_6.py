@@ -97,6 +97,39 @@ CREATED = ["version", "changeset", "timestamp", "user", "uid"]
 POSITION = ["lat", "lon"]
 
 
+def process_map(file_in, pretty=False):
+    """Transform XML data into JSON document schema for mongodb upload"""
+    file_out = "{0}.json".format(file_in)
+    data = []
+    with codecs.open(file_out, "w") as fo:
+        for _, element in ET.iterparse(file_in):
+            el = shape_element(element)
+            if el:
+                data.append(el)
+                if pretty:
+                    fo.write(json.dumps(el, indent=2)+"\n")
+                else:
+                    fo.write(json.dumps(el) + "\n")
+    return data
+
+
+def shape_element(element):
+    """Transform XML element into dictionary representation"""
+    node = {}
+
+    if element.tag == "node" or element.tag == "way":
+        node["type"] = element.tag
+        # Add desired element attributes to node
+        node = transform_element_attributes(node, element)
+
+        # Add desired sub-element attributes to node
+        node = transform_sub_elem_attributes(node, element)
+
+        return node
+    else:
+        return None
+
+
 def transform_element_attributes(node, element):
     """Transform and add element attributes to node"""
     #Get all attributes of XML element.
@@ -186,39 +219,6 @@ def is_compound_street_address(string):
 def contains_bad_char(string):
     """Returns true if string contains problematic characters"""
     return re.search(PROBLEM_CHARS, string)
-
-
-def shape_element(element):
-    """Transform XML element into dictionary representation"""
-    node = {}
-
-    if element.tag == "node" or element.tag == "way":
-        node["type"] = element.tag
-        # Add desired element attributes to node
-        node = transform_element_attributes(node, element)
-
-        # Add desired sub-element attributes to node
-        node = transform_sub_elem_attributes(node, element)
-
-        return node
-    else:
-        return None
-
-
-def process_map(file_in, pretty=False):
-    """Transform XML data into JSON document schema for mongodb upload"""
-    file_out = "{0}.json".format(file_in)
-    data = []
-    with codecs.open(file_out, "w") as fo:
-        for _, element in ET.iterparse(file_in):
-            el = shape_element(element)
-            if el:
-                data.append(el)
-                if pretty:
-                    fo.write(json.dumps(el, indent=2)+"\n")
-                else:
-                    fo.write(json.dumps(el) + "\n")
-    return data
 
 
 def test():
