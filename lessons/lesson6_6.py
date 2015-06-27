@@ -97,92 +97,58 @@ CREATED = ["version", "changeset", "timestamp", "user", "uid"]
 POSITION = ["lat", "lon"]
 
 
-def to_json(data):
-    """Convert dictionary to json"""
-    return json.dumps(data, sort_keys=True,
-                      indent=4, separators=(',', ': '))
-
-
-def shape_element(element):
-    """Transform XML element into dictionary"""
-    node = {}
-
-    if element.tag == "node" or element.tag == "way":
-        # YOUR CODE HERE
-        # Add tag type to node
-        node["type"] = element.tag
-
-        # Add desired element attributes to node
-        node = process_elem_attributes(node, element)
-
-        # Add desired sub-element attributes to node
-        node = process_elem_sub_attributes(node, element)
-
-        # Reverse order of list so grader is happy
-        if "pos" in node:
-            node["pos"] = node["pos"][::-1]
-
-        return node
-    else:
-        return None
-
-
-def process_elem_attributes(node, element):
+def transform_element_attributes(node, element):
+    """Transform and add element attributes to node"""
+    #Get all attributes of XML element.
     attributes = element.attrib
-    #TODO: Add all attributes of node or way tag
+
     for attribute in attributes:
         value = element.attrib[attribute]
-
-        #TODO: Place CREATED attributes in nested dict
+        #Capture special attrs in CREATED collection and add to nested dict.
         if attribute in CREATED:
             if "created" not in node:
                 node["created"] = {}
-
             node["created"][attribute] = value
-            continue
-
-        #TODO: Place position attributes in nested dict
-        if attribute in POSITION:
+        #Capture lat, lon  attributes and add to nested dict "pos".
+        elif attribute in POSITION:
             if "pos" not in node:
                 node["pos"] = []
-
-            node["pos"].append(float(value))
-            continue
-
-        #TODO: Place remaining attributes in dict
-        node[attribute] = value
+            #Ensure proper order of lat, lon in list.
+            if attribute == "lat":
+                node["pos"].insert(0, float(value))
+            else:
+                node["pos"].append(float(value))
+        else:
+            #Place attribute in dict.
+            node[attribute] = value
 
     return node
 
 
-def process_elem_sub_attributes(node, element):
+def transform_sub_elem_attributes(node, element):
+    """Transform and add sub elements to node"""
     sub_elements = element.getiterator()
 
     for sub_elm in sub_elements:
         if sub_elm.tag == "tag":
-            node = process_tag_elem(node, sub_elm)
+            node = transform_tag_elem(node, sub_elm)
 
         if sub_elm.tag == "nd":
-            node = process_nd_tag(node, sub_elm)
+            node = transform_nd_tag(node, sub_elm)
 
     return node
 
 
-def process_tag_elem(node, sub_elem):
+def transform_tag_elem(node, sub_elem):
+    """Extracts and adds tag element specific attributes"""
     k_val = sub_elem.attrib["k"]
     v_val = sub_elem.attrib["v"]
 
-    #TODO: Check for problematic k values
-    if contains_bad_char(k_val):
-        # Ignore
+    #Catch and ignore problematic k values.
+    if contains_bad_char(k_val) or is_compound_street_address(k_val):
         return node
 
-    #TODO: Check if compound street
-    if is_compound_street_address(k_val):
-        # Ignore (example: <tag k="addr:street:prefix" v="North"/>)
-        return node
-
-    #TODO: Check if starts with "addr:"
+    #Catch address related k values.
     if k_val.startswith("addr:"):
         if "address" not in node:
             node["address"] = {}
@@ -196,19 +162,8 @@ def process_tag_elem(node, sub_elem):
     return node
 
 
-def is_compound_street_address(string):
-    values = string.split(":")
-    if len(values) > 2 and values[1] == "street":
-        return True
-
-    return False
-
-
-def contains_bad_char(string):
-    return re.search(PROBLEM_CHARS, string)
-
-
-def process_nd_tag(node, sub_elm):
+def transform_nd_tag(node, sub_elm):
+    """Extracts and adds nd tag specific attributes"""
     ref = sub_elm.attrib["ref"]
 
     if "node_refs" in node:
@@ -219,8 +174,39 @@ def process_nd_tag(node, sub_elm):
     return node
 
 
+def is_compound_street_address(string):
+    """Returns true if string is a compound address"""
+    values = string.split(":")
+    if len(values) > 2 and values[1] == "street":
+        return True
+
+    return False
+
+
+def contains_bad_char(string):
+    """Returns true if string contains problematic characters"""
+    return re.search(PROBLEM_CHARS, string)
+
+
+def shape_element(element):
+    """Transform XML element into dictionary representation"""
+    node = {}
+
+    if element.tag == "node" or element.tag == "way":
+        node["type"] = element.tag
+        # Add desired element attributes to node
+        node = transform_element_attributes(node, element)
+
+        # Add desired sub-element attributes to node
+        node = transform_sub_elem_attributes(node, element)
+
+        return node
+    else:
+        return None
+
+
 def process_map(file_in, pretty=False):
-    # You do not need to change this file
+    """Transform XML data into JSON document schema for mongodb upload"""
     file_out = "{0}.json".format(file_in)
     data = []
     with codecs.open(file_out, "w") as fo:
@@ -236,6 +222,7 @@ def process_map(file_in, pretty=False):
 
 
 def test():
+    """Test process_map function"""
     # NOTE: if you are running this code on your computer, with a larger dataset,
     # call the process_map procedure with pretty=False. The pretty=True option adds
     # additional spaces to the output, making it significantly larger.
