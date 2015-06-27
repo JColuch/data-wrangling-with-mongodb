@@ -4,12 +4,14 @@
 """
 Your task in this exercise has two steps:
 
-- audit the OSMFILE and change the variable 'mapping' to reflect the changes needed to fix 
-    the unexpected street types to the appropriate ones in the expected list.
-    You have to add mappings only for the actual problems you find in this OSMFILE,
-    not a generalized solution, since that may and will depend on the particular area you are auditing.
+- audit the OSMFILE and change the variable 'mapping' to reflect the
+    changes needed to fix the unexpected street types to the appropriate ones
+    in the expected list. You have to add mappings only for the actual problems
+    you find in this OSMFILE, not a generalized solution, since that may and
+    will depend on the particular area you are auditing.
 - write the update_name function, to actually fix the street name.
-    The function takes a string with street name as an argument and should return the fixed name
+    The function takes a string with street name as an argument and should
+    return the fixed name
     We have provided a simple test so that you see what exactly is expected
 """
 
@@ -21,29 +23,35 @@ import pprint
 
 
 OSMFILE = "example.osm"
-street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
-expected = ["Street", "Avenue", "Boulevard", "Drive", "Court", "Place", "Square", "Lane", "Road", 
-            "Trail", "Parkway", "Commons"]
-mapping = { "St": "Street",
-            "St.": "Street",
-            "Ave": "Avenue",
-            "Rd.": "Road"
-          }
+STREET_TYPE_RE = re.compile(r'\b\S+\.?$', re.IGNORECASE)
+EXPECTED = ["Street", "Avenue", "Boulevard", "Drive", "Court", "Place",
+            "Square", "Lane", "Road", "Trail", "Parkway", "Commons"]
+MAPPING = {
+    "St": "Street",
+    "St.": "Street",
+    "Ave": "Avenue",
+    "Rd.": "Road"
+}
 
 
 def audit_street_type(street_types, street_name):
-    m = street_type_re.search(street_name)
-    if m:
-        street_type = m.group()
-        if street_type not in expected:
+    """Determine type of stree of street name and increment count
+    in street types.
+    """
+    match = STREET_TYPE_RE.search(street_name)
+    if match:
+        street_type = match.group()
+        if street_type not in EXPECTED:
             street_types[street_type].add(street_name)
 
 
 def is_street_name(elem):
-    return (elem.attrib['k'] == "addr:street")
+    """Return true if element 'k' tag represents a street."""
+    return elem.attrib['k'] == "addr:street"
 
 
 def audit(osmfile):
+    """Audit osm xml file street names."""
     osm_file = open(osmfile, "r")
     street_types = defaultdict(set)
     for event, elem in ET.iterparse(osm_file, events=("start",)):
@@ -57,8 +65,8 @@ def audit(osmfile):
 
 
 def update_name(name, mapping):
-    # YOUR CODE HERE
-    match = re.search(street_type_re, name)
+    """Transform streetname to desired format"""
+    match = re.search(STREET_TYPE_RE, name)
     if match:
         match = match.group(0)
 
@@ -70,13 +78,14 @@ def update_name(name, mapping):
 
 
 def test():
+    """Test audit function"""
     st_types = audit(OSMFILE)
     assert len(st_types) == 3
     pprint.pprint(dict(st_types))
 
     for st_type, ways in st_types.iteritems():
         for name in ways:
-            better_name = update_name(name, mapping)
+            better_name = update_name(name, MAPPING)
             print name, "=>", better_name
             if name == "West Lexington St.":
                 assert better_name == "West Lexington Street"
