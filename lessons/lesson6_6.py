@@ -33,12 +33,12 @@ You have to complete the function 'shape_element'.
 We have provided a function that will parse the map file, and call the function with the element
 as an argument. You should return a dictionary, containing the shaped data for that element.
 We have also provided a way to save the data in a file, so that you could use
-mongoimport later on to import the shaped data into MongoDB. 
+mongoimport later on to import the shaped data into MongoDB.
 
 Note that in this exercise we do not use the 'update street name' procedures
 you worked on in the previous exercise. If you are using this code in your final
-project, you are strongly encouraged to use the code from previous exercise to 
-update the street names before you save them to JSON. 
+project, you are strongly encouraged to use the code from previous exercise to
+update the street names before you save them to JSON.
 
 In particular the following things should be done:
 - you should process only 2 types of top level tags: "node" and "way"
@@ -46,7 +46,7 @@ In particular the following things should be done:
     - attributes in the CREATED array should be added under a key "created"
     - attributes for latitude and longitude should be added to a "pos" array,
       for use in geospacial indexing. Make sure the values inside "pos" array are floats
-      and not strings. 
+      and not strings.
 - if second level tag "k" value contains problematic characters, it should be ignored
 - if second level tag "k" value starts with "addr:", it should be added to a dictionary "address"
 - if second level tag "k" value does not start with "addr:", but contains ":", you can process it
@@ -89,37 +89,39 @@ import codecs
 import json
 
 
-lower = re.compile(r'^([a-z]|_)*$')
-lower_colon = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
-problemchars = re.compile(r'[=\+/&<>;\'"\?%#$@\,\. \t\r\n]')
+LOWER = re.compile(r'^([a-z]|_)*$')
+LOWER_COLON = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
+PROBLEM_CHARS = re.compile(r'[=\+/&<>;\'"\?%#$@\,\. \t\r\n]')
 
-CREATED = [ "version", "changeset", "timestamp", "user", "uid"]
+CREATED = ["version", "changeset", "timestamp", "user", "uid"]
 POSITION = ["lat", "lon"]
 
 
 def to_json(data):
+    """Convert dictionary to json"""
     return json.dumps(data, sort_keys=True,
-                     indent=4, separators=(',', ': '))
+                      indent=4, separators=(',', ': '))
 
 
 def shape_element(element):
+    """Transform XML element into dictionary"""
     node = {}
 
-    if element.tag == "node" or element.tag == "way" :
+    if element.tag == "node" or element.tag == "way":
         # YOUR CODE HERE
         # Add tag type to node
         node["type"] = element.tag
-        
+
         # Add desired element attributes to node
         node = process_elem_attributes(node, element)
 
         # Add desired sub-element attributes to node
         node = process_elem_sub_attributes(node, element)
-        
+
         # Reverse order of list so grader is happy
         if "pos" in node:
             node["pos"] = node["pos"][::-1]
-        
+
         return node
     else:
         return None
@@ -138,7 +140,7 @@ def process_elem_attributes(node, element):
 
             node["created"][attribute] = value
             continue
-        
+
         #TODO: Place position attributes in nested dict
         if attribute in POSITION:
             if "pos" not in node:
@@ -162,7 +164,7 @@ def process_elem_sub_attributes(node, element):
 
         if sub_elm.tag == "nd":
             node = process_nd_tag(node, sub_elm)
-    
+
     return node
 
 
@@ -179,7 +181,7 @@ def process_tag_elem(node, sub_elem):
     if is_compound_street_address(k_val):
         # Ignore (example: <tag k="addr:street:prefix" v="North"/>)
         return node
-    
+
     #TODO: Check if starts with "addr:"
     if k_val.startswith("addr:"):
         if "address" not in node:
@@ -203,7 +205,7 @@ def is_compound_street_address(string):
 
 
 def contains_bad_char(string):
-    return re.search(problemchars, string)
+    return re.search(PROBLEM_CHARS, string)
 
 
 def process_nd_tag(node, sub_elm):
@@ -217,7 +219,7 @@ def process_nd_tag(node, sub_elm):
     return node
 
 
-def process_map(file_in, pretty = False):
+def process_map(file_in, pretty=False):
     # You do not need to change this file
     file_out = "{0}.json".format(file_in)
     data = []
@@ -234,32 +236,32 @@ def process_map(file_in, pretty = False):
 
 
 def test():
-    # NOTE: if you are running this code on your computer, with a larger dataset, 
-    # call the process_map procedure with pretty=False. The pretty=True option adds 
+    # NOTE: if you are running this code on your computer, with a larger dataset,
+    # call the process_map procedure with pretty=False. The pretty=True option adds
     # additional spaces to the output, making it significantly larger.
     data = process_map('example.osm', True)
     #pprint.pprint(data)
-    
+
     correct_first_elem = {
-        "id": "261114295", 
-        "visible": "true", 
-        "type": "node", 
-        "pos": [41.9730791, -87.6866303], 
+        "id": "261114295",
+        "visible": "true",
+        "type": "node",
+        "pos": [41.9730791, -87.6866303],
         "created": {
-            "changeset": "11129782", 
-            "user": "bbmiller", 
-            "version": "7", 
-            "uid": "451048", 
+            "changeset": "11129782",
+            "user": "bbmiller",
+            "version": "7",
+            "uid": "451048",
             "timestamp": "2012-03-28T18:31:23Z"
         }
     }
     assert data[0] == correct_first_elem
     assert data[-1]["address"] == {
-                                    "street": "West Lexington St.", 
-                                    "housenumber": "1412"
-                                      }
-    assert data[-1]["node_refs"] == [ "2199822281", "2199822390",  "2199822392", "2199822369", 
-                                    "2199822370", "2199822284", "2199822281"]
+        "street": "West Lexington St.",
+        "housenumber": "1412"
+    }
+    assert data[-1]["node_refs"] == ["2199822281", "2199822390", "2199822392", "2199822369",
+                                     "2199822370", "2199822284", "2199822281"]
 
 
 if __name__ == "__main__":
