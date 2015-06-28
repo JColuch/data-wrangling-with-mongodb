@@ -20,11 +20,9 @@ Python 2.7x
 ###Final Project Review
 
 ###Task 1: Lesson 6 Programming Exercises
-####Notes:
 Lesson 6 programming exercise solutions can be found in the lessons directory.
 
 ###Task 2: Process Dataset
-####Notes:
 Map area: Somerville, Massachusetts, United States
 
 OpenStreetMap: [View Map](https://www.openstreetmap.org/relation/1933746#map=14/42.3954/-71.1037)
@@ -32,20 +30,106 @@ OpenStreetMap: [View Map](https://www.openstreetmap.org/relation/1933746#map=14/
 Download source: [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.3681,-71.0645,42.4228)
 
 ###Task 3: Document Findings
-####Problems encountered in map
+####Data Overview
+#####File sizes
+* Size of XML file: 133.4 MB
+* Size of JSON file: 150.4 MB
 
-####Overview of the data
-* Size of XML file: 69.2 MB
-* Size of JSON file:
-* Number of unique users
-* Number of nodes:
-* Number of ways:
-* Breakdown of establishment types:
+#####XML Data Overview
+######Top Level XML Elements
+Module: summarize.py
+Code:
+```
+summarize.get_top_level_tag_summary(OSM_FILE)
+```
+Results:
+```
+{
+    'node': 596989,
+    'member': 10171,
+    'nd': 714378,
+    'tag': 227679,
+    'bounds': 1,
+    'note': 1,
+    'meta': 1,
+    'relation': 534,
+    'way': 95546,
+    'osm': 1
+}
+```
+
+######Number of Unique Contributing Users
+Module: summarize.py
+Code:
+```
+summarize.get_number_of_contributors(OSM_FILE)
+```
+Result: 577
+
+#####MongoDB Data Overview
+######Number of documents uploaded
+MongoDB Query:
+```
+db.somer.count()
+```
+Result: 692535
+
+######Number of nodes
+MongoDB Query:
+```
+db.somer.find( { 'type': 'node' } ).count()
+```
+Result: 596878
+
+######Number of ways
+MongoDB Query:
+```
+db.somer.find( { 'type': 'way' } ).count()
+```
+Result: 95532
+
+
+
+######Top 10 establishment types:
   * Cafes:
   * Restaurants:
   * Bars:
 
-####Other ideas about the dataset
+
+
+####Problems encountered in map
+
+###Task 4. Additional Ideads
+
+
+#####Top 5 Appearing Establishments
+Query:
+```
+
+```
+Result:
+
+#####Top Contributing User
+Query:
+```
+
+```
+Result:
+
+#####Mean Number of Contributions Per User
+Query:
+```
+
+```
+Result:
+
+#####Median Number of Contributions Per User
+Query:
+```
+
+```
+Result:
+
 
 ###Resources
 All resources used/referenced are listed in the file resources.txt.
