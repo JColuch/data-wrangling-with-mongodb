@@ -38,6 +38,7 @@ Download source: [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.
 #####XML Data Overview
 ######Top Level XML Elements
 Module: summarize.py
+
 Code:
 ```
 summarize.get_top_level_tag_summary(OSM_FILE)
@@ -60,6 +61,7 @@ Results:
 
 ######Number of Unique Contributing Users
 Module: summarize.py
+
 Code:
 ```
 summarize.get_number_of_contributors(OSM_FILE)
@@ -98,8 +100,34 @@ Result: 95532
 
 
 ####Problems encountered in map
+#####Street Names
+Inconsistent abbreviations for streetnames exist in the data set.
 
-###Task 4. Additional Ideads
+######Examples:
+For "Street" the following abbreviations were used:
+* "St"
+* "st"
+* "ST"
+* "St."
+
+For "Avenue" the following abbreviations were used:
+* "ave"
+* "Ave."
+* "Ave"
+
+To resolve these inconsistencies I utilized the module streetauditor.py to normalize street names.
+
+
+#####Inconsistent Postal Codes
+
+
+#####Incorrect Postal Codes
+
+
+
+
+
+###Task 4. Additional Ideas
 
 
 #####Top 5 Appearing Establishments
