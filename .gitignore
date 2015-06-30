@@ -1,3 +1,4 @@
 pylint.txt
 finalproject/data/somerville*
 *.pyc
+sampler.py
