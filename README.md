@@ -35,6 +35,8 @@ Download source: [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.
 * Size of XML file: 133.4 MB
 * Size of JSON file: 150.7 MB
 
+Note: A sample of the XML OSM data is available: finalproject/data/sample.osm
+
 #####Reason for Selection
 My two younger brothers attend Tufts University in Somerville, MA. I often visit and thought the dense urban neighborhood would be interesting to review.
 
@@ -111,10 +113,11 @@ Result: 95532
 
 
 ######Top 10 establishment types:
-  * Cafes:
-  * Restaurants:
-  * Bars:
+MongoDB Query:
+```
 
+```
+Result:
 
 
 ####Problems encountered in map
