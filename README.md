@@ -33,9 +33,27 @@ Download source: [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.
 ####Data Overview
 #####File sizes
 * Size of XML file: 133.4 MB
-* Size of JSON file: 150.4 MB
+* Size of JSON file: 150.7 MB
+
+#####Reason for Selection
+My two younger brothers attend Tufts University in Somerville, MA. I often visit and thought the dense urban neighborhood would be interesting to review.
 
 #####XML Data Overview
+Note: I wrote 4 modules to assist in data review and transformation:
+* streetauditor.py
+* summarize.py
+* tagauditor.py
+* transformer.py
+
+######Tag element "K" attribute analysis
+See file: finalprojects/data/k-breakdown.json
+
+I wrote a recursive algorithm to parse compund k attribute values (multple words separated by a ":") found in "tag" elements.
+
+This breakdown provides an interesting look into the type and frequency of data provided in the "tag" element.
+
+Note: the "root" property is the frequency count for the parent key.
+
 ######Top Level XML Elements
 Module: summarize.py
 
@@ -116,11 +134,6 @@ For "Avenue" the following abbreviations were used:
 * "Ave"
 
 To resolve these inconsistencies I utilized the module streetauditor.py to normalize street names.
-
-#####Problem #2:
-
-
-#####Problem #3: 
 
 ###Task 4. Additional Ideas
 
