@@ -100,7 +100,7 @@ Result: 95532
 
 
 ####Problems encountered in map
-#####Street Names
+#####Problem #1: Street Names
 Inconsistent abbreviations for streetnames exist in the data set.
 
 ######Examples:
@@ -117,15 +117,10 @@ For "Avenue" the following abbreviations were used:
 
 To resolve these inconsistencies I utilized the module streetauditor.py to normalize street names.
 
-
-#####Inconsistent Postal Codes
-
-
-#####Incorrect Postal Codes
+#####Problem #2:
 
 
-
-
+#####Problem #3: 
 
 ###Task 4. Additional Ideas
 
