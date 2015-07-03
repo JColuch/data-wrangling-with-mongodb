@@ -1,0 +1,1426 @@
+
+{
+    "count": 399,
+    "k_val": "shop",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "building_entrance",
+    "variations": 2
+}
+{
+    "count": 168,
+    "k_val": "maxspeed",
+    "variations": 1
+}
+{
+    "count": 106,
+    "k_val": "office",
+    "variations": 1
+}
+{
+    "count": 48,
+    "k_val": "restriction",
+    "variations": 1
+}
+{
+    "count": 235,
+    "k_val": "man_made",
+    "variations": 1
+}
+{
+    "count": 15,
+    "k_val": "jurisdiction",
+    "variations": 1
+}
+{
+    "count": 72,
+    "k_val": "grades",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "industrial",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "postal_code",
+    "variations": 1
+}
+{
+    "count": 52,
+    "k_val": "voltage",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "oven",
+    "variations": 1
+}
+{
+    "count": 30,
+    "k_val": "seats",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "agricultural",
+    "variations": 1
+}
+{
+    "count": 459,
+    "k_val": "cycleway",
+    "variations": 3
+}
+{
+    "count": 6,
+    "k_val": "other_source",
+    "variations": 1
+}
+{
+    "count": 6,
+    "k_val": "to",
+    "variations": 1
+}
+{
+    "count": 3800,
+    "k_val": "gnis",
+    "variations": 18
+}
+{
+    "count": 10,
+    "k_val": "lit",
+    "variations": 1
+}
+{
+    "count": 124,
+    "k_val": "hazmat",
+    "variations": 1
+}
+{
+    "count": 17,
+    "k_val": "proposed",
+    "variations": 1
+}
+{
+    "count": 14,
+    "k_val": "generator",
+    "variations": 6
+}
+{
+    "count": 5,
+    "k_val": "psv",
+    "variations": 1
+}
+{
+    "count": 5,
+    "k_val": "proposed_name",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "except",
+    "variations": 1
+}
+{
+    "count": 1433,
+    "k_val": "created_by",
+    "variations": 1
+}
+{
+    "count": 933,
+    "k_val": "ele",
+    "variations": 1
+}
+{
+    "count": 16026,
+    "k_val": "source",
+    "variations": 10
+}
+{
+    "count": 1,
+    "k_val": "drive_in",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "other",
+    "variations": 1
+}
+{
+    "count": 5,
+    "k_val": "fuel",
+    "variations": 5
+}
+{
+    "count": 151,
+    "k_val": "covered",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "bikeway",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "step_count",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "coffee",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "indoor",
+    "variations": 1
+}
+{
+    "count": 10975,
+    "k_val": "attribution",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "day_off",
+    "variations": 1
+}
+{
+    "count": 8,
+    "k_val": "short_name",
+    "variations": 2
+}
+{
+    "count": 3,
+    "k_val": "food",
+    "variations": 1
+}
+{
+    "count": 37,
+    "k_val": "material",
+    "variations": 1
+}
+{
+    "count": 1029,
+    "k_val": "leisure",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "trail_visibility",
+    "variations": 1
+}
+{
+    "count": 149,
+    "k_val": "orig_name",
+    "variations": 1
+}
+{
+    "count": 37,
+    "k_val": "historic",
+    "variations": 2
+}
+{
+    "count": 2,
+    "k_val": "cycle_network",
+    "variations": 1
+}
+{
+    "count": 48,
+    "k_val": "motor_vehicle",
+    "variations": 1
+}
+{
+    "count": 815,
+    "k_val": "foot",
+    "variations": 1
+}
+{
+    "count": 98,
+    "k_val": "tourism",
+    "variations": 1
+}
+{
+    "count": 86,
+    "k_val": "campusbuilding",
+    "variations": 1
+}
+{
+    "count": 5883,
+    "k_val": "condition",
+    "variations": 1
+}
+{
+    "count": 36,
+    "k_val": "fixme",
+    "variations": 1
+}
+{
+    "count": 8,
+    "k_val": "artwork_type",
+    "variations": 1
+}
+{
+    "count": 11892,
+    "k_val": "name",
+    "variations": 258
+}
+{
+    "count": 11,
+    "k_val": "designation",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "artist",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "scenic",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "notes",
+    "variations": 1
+}
+{
+    "count": 46,
+    "k_val": "level",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "manager",
+    "variations": 1
+}
+{
+    "count": 1470,
+    "k_val": "network",
+    "variations": 1
+}
+{
+    "count": 1391,
+    "k_val": "public_transport",
+    "variations": 1
+}
+{
+    "count": 10,
+    "k_val": "embankment",
+    "variations": 1
+}
+{
+    "count": 170,
+    "k_val": "crossing",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "bench",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "tower",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "disused",
+    "variations": 2
+}
+{
+    "count": 5,
+    "k_val": "noexit",
+    "variations": 1
+}
+{
+    "count": 18,
+    "k_val": "internet_access",
+    "variations": 2
+}
+{
+    "count": 1,
+    "k_val": "name_1",
+    "variations": 1
+}
+{
+    "count": 610,
+    "k_val": "bicycle",
+    "variations": 1
+}
+{
+    "count": 51,
+    "k_val": "frequency",
+    "variations": 1
+}
+{
+    "count": 22,
+    "k_val": "official_name",
+    "variations": 2
+}
+{
+    "count": 2,
+    "k_val": "sex",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "platforms",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "cutting",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "cost",
+    "variations": 1
+}
+{
+    "count": 12,
+    "k_val": "route_ref",
+    "variations": 1
+}
+{
+    "count": 591,
+    "k_val": "surface",
+    "variations": 1
+}
+{
+    "count": 207,
+    "k_val": "parking",
+    "variations": 3
+}
+{
+    "count": 137,
+    "k_val": "gauge",
+    "variations": 1
+}
+{
+    "count": 308,
+    "k_val": "sport",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "hygrometer",
+    "variations": 1
+}
+{
+    "count": 9,
+    "k_val": "exit_to",
+    "variations": 1
+}
+{
+    "count": 254,
+    "k_val": "capacity",
+    "variations": 2
+}
+{
+    "count": 14281,
+    "k_val": "addr",
+    "variations": 13
+}
+{
+    "count": 2,
+    "k_val": "inmate_count",
+    "variations": 1
+}
+{
+    "count": 99,
+    "k_val": "wikipedia",
+    "variations": 1
+}
+{
+    "count": 12,
+    "k_val": "name_orig",
+    "variations": 1
+}
+{
+    "count": 1032,
+    "k_val": "access",
+    "variations": 1
+}
+{
+    "count": 176,
+    "k_val": "religion",
+    "variations": 1
+}
+{
+    "count": 374,
+    "k_val": "protected",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "LOCATION",
+    "variations": 1
+}
+{
+    "count": 62,
+    "k_val": "toll",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "ROUTES",
+    "variations": 1
+}
+{
+    "count": 56,
+    "k_val": "boundary",
+    "variations": 1
+}
+{
+    "count": 65,
+    "k_val": "is_in",
+    "variations": 4
+}
+{
+    "count": 2106,
+    "k_val": "ref",
+    "variations": 4
+}
+{
+    "count": 12,
+    "k_val": "email",
+    "variations": 1
+}
+{
+    "count": 14609,
+    "k_val": "highway",
+    "variations": 1
+}
+{
+    "count": 16,
+    "k_val": "subway",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "Town",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "barometer",
+    "variations": 1
+}
+{
+    "count": 37,
+    "k_val": "historical",
+    "variations": 1
+}
+{
+    "count": 500,
+    "k_val": "barrier",
+    "variations": 1
+}
+{
+    "count": 41,
+    "k_val": "import_uuid",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "old_gnis",
+    "variations": 1
+}
+{
+    "count": 136,
+    "k_val": "electrified",
+    "variations": 1
+}
+{
+    "count": 146,
+    "k_val": "source_url",
+    "variations": 1
+}
+{
+    "count": 17791,
+    "k_val": "massgis",
+    "variations": 57
+}
+{
+    "count": 12,
+    "k_val": "tracks",
+    "variations": 1
+}
+{
+    "count": 175,
+    "k_val": "address",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "nationality",
+    "variations": 1
+}
+{
+    "count": 88,
+    "k_val": "denomination",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "hoops",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "security",
+    "variations": 1
+}
+{
+    "count": 6,
+    "k_val": "hov",
+    "variations": 1
+}
+{
+    "count": 20,
+    "k_val": "water",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "circumference",
+    "variations": 1
+}
+{
+    "count": 7,
+    "k_val": "census",
+    "variations": 1
+}
+{
+    "count": 31,
+    "k_val": "incline",
+    "variations": 1
+}
+{
+    "count": 36,
+    "k_val": "footway",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "country",
+    "variations": 1
+}
+{
+    "count": 47,
+    "k_val": "region",
+    "variations": 1
+}
+{
+    "count": 27,
+    "k_val": "atm",
+    "variations": 1
+}
+{
+    "count": 136,
+    "k_val": "ramp",
+    "variations": 2
+}
+{
+    "count": 1,
+    "k_val": "display",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "unisex",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "length",
+    "variations": 1
+}
+{
+    "count": 48,
+    "k_val": "place",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "nist",
+    "variations": 2
+}
+{
+    "count": 660,
+    "k_val": "railway",
+    "variations": 6
+}
+{
+    "count": 2,
+    "k_val": "clothes",
+    "variations": 1
+}
+{
+    "count": 24,
+    "k_val": "source_ref",
+    "variations": 1
+}
+{
+    "count": 8,
+    "k_val": "comment",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "whitewater",
+    "variations": 2
+}
+{
+    "count": 7,
+    "k_val": "drive_through",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "maxstay",
+    "variations": 1
+}
+{
+    "count": 385,
+    "k_val": "bridge",
+    "variations": 2
+}
+{
+    "count": 1,
+    "k_val": "image",
+    "variations": 1
+}
+{
+    "count": 8,
+    "k_val": "recycling",
+    "variations": 3
+}
+{
+    "count": 4,
+    "k_val": "craft",
+    "variations": 1
+}
+{
+    "count": 399,
+    "k_val": "layer",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "outcrop",
+    "variations": 2
+}
+{
+    "count": 260,
+    "k_val": "height",
+    "variations": 1
+}
+{
+    "count": 6,
+    "k_val": "emergency_room",
+    "variations": 1
+}
+{
+    "count": 102,
+    "k_val": "alt_name",
+    "variations": 2
+}
+{
+    "count": 1,
+    "k_val": "other_name",
+    "variations": 1
+}
+{
+    "count": 24,
+    "k_val": "tidal",
+    "variations": 1
+}
+{
+    "count": 1566,
+    "k_val": "operator",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "wpt_description",
+    "variations": 1
+}
+{
+    "count": 68,
+    "k_val": "route",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "boat",
+    "variations": 1
+}
+{
+    "count": 70,
+    "k_val": "horse",
+    "variations": 1
+}
+{
+    "count": 34,
+    "k_val": "fee",
+    "variations": 1
+}
+{
+    "count": 6,
+    "k_val": "from",
+    "variations": 1
+}
+{
+    "count": 18,
+    "k_val": "old_ref",
+    "variations": 1
+}
+{
+    "count": 45,
+    "k_val": "service",
+    "variations": 7
+}
+{
+    "count": 702,
+    "k_val": "area",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "inmate_capcity",
+    "variations": 1
+}
+{
+    "count": 143,
+    "k_val": "opening_hours",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "support",
+    "variations": 1
+}
+{
+    "count": 18,
+    "k_val": "destination",
+    "variations": 2
+}
+{
+    "count": 5,
+    "k_val": "direction",
+    "variations": 1
+}
+{
+    "count": 5770,
+    "k_val": "width",
+    "variations": 1
+}
+{
+    "count": 16,
+    "k_val": "border_type",
+    "variations": 1
+}
+{
+    "count": 7,
+    "k_val": "camera",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "stars",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "lock",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "ship",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "basin",
+    "variations": 1
+}
+{
+    "count": 656,
+    "k_val": "type",
+    "variations": 1
+}
+{
+    "count": 46,
+    "k_val": "bicycle_parking",
+    "variations": 1
+}
+{
+    "count": 385,
+    "k_val": "website",
+    "variations": 2
+}
+{
+    "count": 45,
+    "k_val": "admin_level",
+    "variations": 1
+}
+{
+    "count": 32,
+    "k_val": "entrance",
+    "variations": 1
+}
+{
+    "count": 5961,
+    "k_val": "lanes",
+    "variations": 2
+}
+{
+    "count": 1,
+    "k_val": "gay",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "wetap",
+    "variations": 2
+}
+{
+    "count": 1372,
+    "k_val": "bus",
+    "variations": 1
+}
+{
+    "count": 23,
+    "k_val": "brand",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "vehicle",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "microbrewery",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "visibility",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "ford",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "delivery",
+    "variations": 1
+}
+{
+    "count": 319,
+    "k_val": "phone",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "flag",
+    "variations": 1
+}
+{
+    "count": 17,
+    "k_val": "construction",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "manhole",
+    "variations": 1
+}
+{
+    "count": 37,
+    "k_val": "old_name",
+    "variations": 2
+}
+{
+    "count": 15,
+    "k_val": "smoking",
+    "variations": 1
+}
+{
+    "count": 108,
+    "k_val": "line",
+    "variations": 1
+}
+{
+    "count": 7,
+    "k_val": "population",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "distance",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "abandoned",
+    "variations": 1
+}
+{
+    "count": 141,
+    "k_val": "tunnel",
+    "variations": 1
+}
+{
+    "count": 6,
+    "k_val": "park_ride",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "diplomatic",
+    "variations": 1
+}
+{
+    "count": 1452,
+    "k_val": "roof",
+    "variations": 9
+}
+{
+    "count": 149,
+    "k_val": "start_date",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "route_master",
+    "variations": 1
+}
+{
+    "count": 21,
+    "k_val": "refIMG",
+    "variations": 3
+}
+{
+    "count": 3,
+    "k_val": "aeroway",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "architect",
+    "variations": 1
+}
+{
+    "count": 5,
+    "k_val": "dispensing",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "monument",
+    "variations": 1
+}
+{
+    "count": 7,
+    "k_val": "site",
+    "variations": 1
+}
+{
+    "count": 97,
+    "k_val": "wetland",
+    "variations": 1
+}
+{
+    "count": 616,
+    "k_val": "landuse",
+    "variations": 1
+}
+{
+    "count": 12,
+    "k_val": "tracktype",
+    "variations": 1
+}
+{
+    "count": 87,
+    "k_val": "colour",
+    "variations": 1
+}
+{
+    "count": 28,
+    "k_val": "segregated",
+    "variations": 1
+}
+{
+    "count": 23,
+    "k_val": "history",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "inscription",
+    "variations": 1
+}
+{
+    "count": 3118,
+    "k_val": "amenity",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "outdoor_seating",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "loc_name",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "other_massgis",
+    "variations": 1
+}
+{
+    "count": 109,
+    "k_val": "backrest",
+    "variations": 1
+}
+{
+    "count": 113,
+    "k_val": "seamark",
+    "variations": 7
+}
+{
+    "count": 4,
+    "k_val": "ISO3166-1",
+    "variations": 4
+}
+{
+    "count": 9,
+    "k_val": "fax",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "maxheight",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "ISO3166-2",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "former_name",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "duration",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "headway",
+    "variations": 2
+}
+{
+    "count": 115,
+    "k_val": "sidewalk",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "timezone",
+    "variations": 1
+}
+{
+    "count": 53,
+    "k_val": "junction",
+    "variations": 1
+}
+{
+    "count": 88,
+    "k_val": "waterway",
+    "variations": 1
+}
+{
+    "count": 14,
+    "k_val": "noname",
+    "variations": 1
+}
+{
+    "count": 10,
+    "k_val": "species",
+    "variations": 2
+}
+{
+    "count": 3,
+    "k_val": "recycling_type",
+    "variations": 1
+}
+{
+    "count": 254,
+    "k_val": "cuisine",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "memorial",
+    "variations": 1
+}
+{
+    "count": 261,
+    "k_val": "emergency",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "turn",
+    "variations": 1
+}
+{
+    "count": 345,
+    "k_val": "hgv",
+    "variations": 1
+}
+{
+    "count": 10,
+    "k_val": "media",
+    "variations": 1
+}
+{
+    "count": 427,
+    "k_val": "owner",
+    "variations": 1
+}
+{
+    "count": 14,
+    "k_val": "surveillance",
+    "variations": 2
+}
+{
+    "count": 428,
+    "k_val": "note",
+    "variations": 4
+}
+{
+    "count": 2,
+    "k_val": "collection_times",
+    "variations": 1
+}
+{
+    "count": 4,
+    "k_val": "demolished",
+    "variations": 4
+}
+{
+    "count": 86,
+    "k_val": "NHS",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "thermometer",
+    "variations": 1
+}
+{
+    "count": 10,
+    "k_val": "supervised",
+    "variations": 1
+}
+{
+    "count": 110,
+    "k_val": "old_railway_operator",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "depot",
+    "variations": 1
+}
+{
+    "count": 71,
+    "k_val": "FIXME",
+    "variations": 2
+}
+{
+    "count": 33,
+    "k_val": "description",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "information",
+    "variations": 1
+}
+{
+    "count": 32,
+    "k_val": "shelter",
+    "variations": 1
+}
+{
+    "count": 8,
+    "k_val": "symbol",
+    "variations": 1
+}
+{
+    "count": 2927,
+    "k_val": "oneway",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "fence_type",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "diet",
+    "variations": 1
+}
+{
+    "count": 35,
+    "k_val": "min_height",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "day_on",
+    "variations": 1
+}
+{
+    "count": 129,
+    "k_val": "power",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "artist_name",
+    "variations": 1
+}
+{
+    "count": 400,
+    "k_val": "ownership",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "power_source",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "date",
+    "variations": 1
+}
+{
+    "count": 15,
+    "k_val": "payment",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "state_capital",
+    "variations": 1
+}
+{
+    "count": 81467,
+    "k_val": "building",
+    "variations": 8
+}
+{
+    "count": 23,
+    "k_val": "fire_hydrant",
+    "variations": 2
+}
+{
+    "count": 439,
+    "k_val": "natural",
+    "variations": 1
+}
+{
+    "count": 2,
+    "k_val": "polling_station",
+    "variations": 1
+}
+{
+    "count": 21,
+    "k_val": "url",
+    "variations": 1
+}
+{
+    "count": 73,
+    "k_val": "wheelchair",
+    "variations": 1
+}
+{
+    "count": 7,
+    "k_val": "wifi",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "dog",
+    "variations": 1
+}
+{
+    "count": 22,
+    "k_val": "traffic_signals",
+    "variations": 2
+}
+{
+    "count": 39,
+    "k_val": "denotation",
+    "variations": 1
+}
+{
+    "count": 62,
+    "k_val": "contact",
+    "variations": 9
+}
+{
+    "count": 2,
+    "k_val": "NRHP",
+    "variations": 1
+}
+{
+    "count": 6,
+    "k_val": "takeaway",
+    "variations": 1
+}
+{
+    "count": 26,
+    "k_val": "floating",
+    "variations": 1
+}
+{
+    "count": 3,
+    "k_val": "wikidata",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "operated_by",
+    "variations": 1
+}
+{
+    "count": 1,
+    "k_val": "collection_time",
+    "variations": 1
+}

@@ -32,13 +32,17 @@ def main():
     # Uncomment to run.
     # transformer.process_map(OSM_FILE)
 
-    # Validate K attributes
+    # Validate K attributes.
     # Uncomment to run.
     #print tagauditor.validate_k_attributes(OSM_FILE)
 
-    #Get breakdown of K attributes to understand problems of data set
-    data = tagauditor.get_k_value_breakdown(OSM_FILE)
-    file_out = 'data/k-breakdown.json'
+    # Get breakdown of K attributes to understand problems of data set.
+    #data = tagauditor.get_k_value_breakdown(OSM_FILE)
+    #file_out = 'data/k-breakdown.json'
+
+    # Get summary of K attributes.
+    data = tagauditor.get_k_value_summary(OSM_FILE)
+    file_out = 'data/k-summary.json'
     
     with open(file_out, 'w') as f:
         json.dump(data, f, sort_keys=True,
