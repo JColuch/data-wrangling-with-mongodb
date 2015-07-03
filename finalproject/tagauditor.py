@@ -42,13 +42,17 @@ def _validate_key_type(keys, k_val):
 def get_k_value_summary(filename):
     """Count all k values and number of variations of each."""
     data = count_elem_attr_vals(filename, "tag", "k")
-    summary_data = {}
+    summary_data = []
 
     for key in data:
         key_obj = data[key]
         count, variations = _update_key_count(key_obj)
 
-        summary_data[key] = {"count": count, "variations": variations}
+        summary_data.append({
+            "k_val": key,
+            "count": count,
+            "variations": variations
+        })
 
     return summary_data
 
