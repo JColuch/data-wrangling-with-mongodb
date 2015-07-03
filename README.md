@@ -142,7 +142,6 @@ Result:
 
 | Amenity          | Count    |
 | ---------------- | -------- |
-| null             | 689454   |
 | parking          | 660      |
 | bench            | 415      |
 | restaurant       | 268      |
@@ -151,7 +150,8 @@ Result:
 | bicycle_parking  | 166      |
 | hydrant          | 124      |
 | library          | 110      |
-| cafe"            | 85       |
+| cafe             | 85       |
+| university       | 77       |
 
 ######Top 10 Cuisine Types:
 MongoDB Query:
@@ -251,19 +251,37 @@ Results:
 Note: It is interesting to note the amount of GIS data present in this data set. It ranks as the second most common k value and contains the second most number of variations. This could be due to the number of Universities in Boston who teach GIS classes.
 
 
-#####Mean Number of Contributions Per User
-Query:
+#####Number of Contributions Per User
+MongoDB Query:
 ```
-
-```
-Result:
-
-#####Median Number of Contributions Per User
-Query:
-```
-
+db.somer.aggregate([
+    { "$group" : { "_id" : "$created.user", "numContribs" : { "$sum" : 1 } } },
+    { "$group" : { "_id" : "null", "avgContribPerUser" : { "$avg" : "$numContribs" } } }
+])
 ```
 Result:
+Avg. number of contributions per user: ~1238.8
+
+This average is very high. When observing the top 10 contributors have a range from ~370000 to 5325. This indicates that we have a skewed data set with a few outliers on the upper end of the distribution that are pulling our average up.
+
+Running variations of the following query shows us that of the 577 unique contributors the majority of them submitted ten or fewer times.
+
+```
+db.somer.aggregate([
+    { "$group" : { "_id" : "$created.user", "total" : { "$sum" : 1 } } },
+    { "$match" : { "total": { "$lte" : 10 } } },
+    { "$group" : { "_id" : "null", "numOfUsers" : { "$sum" : 1 } } }
+])
+```
+
+| Number of users | % of users | Contributions | 
+| --------------- | ---------- | ------------- |
+| 143             | ~25%       | 1             |
+| 295             | ~50%       | <= 5          |
+| 365             | ~63%       | <= 10         |
+
+
+
 
 
 ###Resources
