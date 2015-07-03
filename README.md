@@ -153,6 +153,30 @@ Result:
 | library          | 110      |
 | cafe"            | 85       |
 
+######Top 10 Cuisine Types:
+MongoDB Query:
+```
+db.somer.aggregate([
+    { "$group" : { "_id" : "$cuisine", "total" : { "$sum" : 1 } } },
+    { "$sort" : { "total" : -1 } },
+    { "$limit" : 10 }
+])
+```
+Results:
+
+| Cuisine     | Count |
+| ----------- | ----- |
+| pizza       | 30    |
+| chinese     | 22    |
+| mexican     | 19    |
+| american    | 18    |
+| italian     | 16    |
+| sandwich    | 16    |
+| indian      | 15    |
+| coffee_shop | 14    |
+| burger      | 11    |
+| thai        | 8     |
+
 ####Problems encountered in map
 #####Problem #1: Street Names
 Inconsistent abbreviations for streetnames exist in the data set.
@@ -172,21 +196,6 @@ For "Avenue" the following abbreviations were used:
 To resolve these inconsistencies I utilized the module streetauditor.py to normalize street names.
 
 ###Task 4. Additional Ideas
-
-
-#####Top 5 Appearing Establishments
-Query:
-```
-
-```
-Result:
-
-#####Top Contributing User
-Query:
-```
-
-```
-Result:
 
 #####Mean Number of Contributions Per User
 Query:
