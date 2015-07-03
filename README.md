@@ -195,6 +195,32 @@ For "Avenue" the following abbreviations were used:
 
 To resolve these inconsistencies I utilized the module streetauditor.py to normalize street names.
 
+#####Problem #2: Outdated Data
+Somerville is a densely nested active area surrounded by colleges and universities. Construction is continous and local businesses rise and fall. With this turnover, it is important to have "fresh" data. See below for analysis:
+
+Total number of nodes with a timestamp: 
+Query:
+```
+db.somer.find({"created.timestamp" : { "$exists" : 1}}).count()
+```
+Result: 692535
+
+Breakdown:
+Query (modify year):
+```
+db.somer.find( { "created.timestamp" : { "$gte" : "2015-01-01T00:00:00Z" } } )
+```
+
+| Created since | Number of nodes | % of nodes |
+| ------------- | --------------- | ---------- |
+| 2015          | 5930            | 0.85  %    |
+| 2014          | 26408           | 3.81  %    |
+| 2013          | 143707          | 20.75 %    |
+
+
+The table above shows that only a fraction of data is current within the past year. Going back a full two years only provides ~20% of the data. Flip that around ~80% of the map data is more than two years old and may be no longer useful.
+
+
 ###Task 4. Additional Ideas
 
 #####Types of similar data
