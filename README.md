@@ -197,6 +197,60 @@ To resolve these inconsistencies I utilized the module streetauditor.py to norma
 
 ###Task 4. Additional Ideas
 
+#####Types of similar data
+I wrote a recursive algorithm to count the variations of compound k attribute values in "tag" elements.
+
+Example:
+* addr:street
+* addr:zip
+
+Above "addr" would be reported as having two variations and a count of two.
+
+I uploaded the summary data (see file data/k-summary.json) into MongoDB and performed a query to identify the most variable k values and most popular.
+
+######10 Most frequenctly occuring k value
+MongoDB query:
+```
+db.ksum.find({ }, { "_id" : 0 } ).sort( { "count" : -1 } ).limit( 10 )
+```
+Result:
+
+| K value     | Variations | Count
+| ----------- | -----------| ------ |
+| building    | 8          | 81467  |
+| massgis     | 57         | 17791  |
+| source      | 10         | 16026  |
+| highway     | 1          | 14609  |
+| addr        | 13         | 14281  |
+| name        | 258        | 11892  |
+| attribution | 1          | 10975  |
+| lanes       | 2          | 5961   |
+| condition   | 1          | 5883   |
+| width       | 1          | 5770   |
+
+######10 Most Variations of k value
+MongoDB query:
+```
+db.ksum.find({ }, { "_id" : 0 } ).sort( { "variations" : -1 } ).limit( 10 )
+```
+Results:
+
+| K value     | Variations|
+| ----------- | --------- |
+| name        | 258       |
+| massgis     | 57        |
+| ngis        | 18        |
+| addr        | 13        |
+| source      | 10        |
+| roof        | 9         |
+| contact     | 9         |
+| building    | 8         |
+| service     | 7         |
+| seamark     | 7         |
+
+Note: It is interesting to note the amount of GIS data present in this data set. It ranks as the second most common k value and contains the second most number of variations. This could be due to the number of Universities in Boston who teach GIS classes.
+
+
 #####Mean Number of Contributions Per User
 Query:
 ```
