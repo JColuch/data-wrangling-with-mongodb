@@ -48,13 +48,13 @@ Note: I wrote 4 modules to assist in data review and transformation:
 * transformer.py
 
 ######Tag element "K" attribute analysis
-See file: finalprojects/data/k-breakdown.json
-
 I wrote a recursive algorithm to parse compund k attribute values (multple words separated by a ":") found in "tag" elements.
 
 This breakdown provides an interesting look into the type and frequency of data provided in the "tag" element.
 
 Note: the "root" property is the frequency count for the parent key.
+
+See the k attribute analysis file in: finalprojects/data/k-breakdown.json
 
 ######Top Level XML Elements
 Module: summarize.py
@@ -110,15 +110,46 @@ db.somer.find( { 'type': 'way' } ).count()
 ```
 Result: 95532
 
-
-
-######Top 10 establishment types:
-MongoDB Query:
+#####Top 5 Contributing Users
+Query:
 ```
-
+db.somer.aggregate([
+    { "$group" : { "_id" : "$created.user", "total" : { "$sum" : 1 } } },
+    { "$sort" : { "total" : -1 } },
+    { "$limit" : 5 }
+])
 ```
 Result:
+User              | Count
+----------------------------
+crschmidt           370001
+jremillard-massgis  93258
+OceanVortex         83486
+ingalls_imports     29064
+morganwahl          27541
 
+######Top 10 amenity types:
+MongoDB Query:
+```
+db.somer.aggregate([
+    { "$group" : { "_id" : "$amenity", "total" : { "$sum" : 1 } } },
+    { "$sort" : { "total" : -1 } },
+    { "$limit" : 10 }
+])
+```
+Result:
+Amenity           | Count
+---------------------------
+null                689454
+parking             660
+bench               415
+restaurant          268
+school              199
+place_of_worship    184
+bicycle_parking     166
+hydrant             124
+library             110
+cafe"               85
 
 ####Problems encountered in map
 #####Problem #1: Street Names
