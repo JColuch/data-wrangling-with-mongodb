@@ -120,6 +120,7 @@ db.somer.aggregate([
 ])
 ```
 Result:
+
 | User              | Count    |
 | ----------------- | -------- |
 | crschmidt         |  370001  |
@@ -138,6 +139,7 @@ db.somer.aggregate([
 ])
 ```
 Result:
+
 | Amenity          | Count    |
 | ---------------- | -------- |
 | null             | 689454   |
