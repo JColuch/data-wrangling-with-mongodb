@@ -120,13 +120,13 @@ db.somer.aggregate([
 ])
 ```
 Result:
-User              | Count
-----------------------------
-crschmidt           370001
-jremillard-massgis  93258
-OceanVortex         83486
-ingalls_imports     29064
-morganwahl          27541
+| User              | Count    |
+| ----------------- | -------- |
+| crschmidt         |  370001  |
+| jremillard-massgis|  93258   |
+| OceanVortex       |  83486   |
+| ingalls_imports   |  29064   |
+| morganwahl        |  27541   |
 
 ######Top 10 amenity types:
 MongoDB Query:
@@ -138,18 +138,18 @@ db.somer.aggregate([
 ])
 ```
 Result:
-Amenity           | Count
----------------------------
-null                689454
-parking             660
-bench               415
-restaurant          268
-school              199
-place_of_worship    184
-bicycle_parking     166
-hydrant             124
-library             110
-cafe"               85
+| Amenity          | Count    |
+| ---------------- | -------- |
+| null             | 689454   |
+| parking          | 660      |
+| bench            | 415      |
+| restaurant       | 268      |
+| school           | 199      |
+| place_of_worship | 184      |
+| bicycle_parking  | 166      |
+| hydrant          | 124      |
+| library          | 110      |
+| cafe"            | 85       |
 
 ####Problems encountered in map
 #####Problem #1: Street Names
