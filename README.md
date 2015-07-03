@@ -199,14 +199,16 @@ To resolve these inconsistencies I utilized the module streetauditor.py to norma
 Somerville is a densely nested active area surrounded by colleges and universities. Construction is continous and local businesses rise and fall. With this turnover, it is important to have "fresh" data. See below for analysis:
 
 Total number of nodes with a timestamp: 
+
 Query:
 ```
-db.somer.find({"created.timestamp" : { "$exists" : 1}}).count()
+db.somer.find({"created.timestamp" : { "$exists" : 1 } } ).count()
 ```
 Result: 692535
 
 Breakdown:
-Query (modify year):
+
+Query:
 ```
 db.somer.find( { "created.timestamp" : { "$gte" : "2015-01-01T00:00:00Z" } } )
 ```
@@ -219,7 +221,6 @@ db.somer.find( { "created.timestamp" : { "$gte" : "2015-01-01T00:00:00Z" } } )
 
 
 The table above shows that only a fraction of data is current within the past year. Going back a full two years only provides ~20% of the data. Flip that around ~80% of the map data is more than two years old and may be no longer useful.
-
 
 ###Task 4. Additional Ideas
 
@@ -234,7 +235,7 @@ Above "addr" would be reported as having two variations and a count of two.
 
 I uploaded the summary data (see file data/k-summary.json) into MongoDB and performed a query to identify the most variable k values and most popular.
 
-######10 Most frequenctly occuring k value
+######Top 10 most frequently occurring k values
 MongoDB query:
 ```
 db.ksum.find({ }, { "_id" : 0 } ).sort( { "count" : -1 } ).limit( 10 )
@@ -254,7 +255,7 @@ Result:
 | condition   | 1          | 5883   |
 | width       | 1          | 5770   |
 
-######10 Most Variations of k value
+######Top 10 K values with the most variations
 MongoDB query:
 ```
 db.ksum.find({ }, { "_id" : 0 } ).sort( { "variations" : -1 } ).limit( 10 )
