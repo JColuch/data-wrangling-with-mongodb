@@ -247,6 +247,24 @@ useful.
 
 ####Task 4. Additional Ideas
 
+#####Partner with local Universities and Government Organizations
+In the analysis below there is a significant amount of GIS data present in this
+data set. GIS data ranks as the second most common k value and contains the
+second most number of variations. This could be due to the number of
+Universities in Boston who teach GIS mapping classes as well as active
+government organizations who use this type of data.
+
+It may be possible to reach out to the surrounding academic and government
+organizations and create some type of partnership. Students/employees would
+be given a set of standards to follow and ask to upload any data they work with
+to the OSM Street Map site. This effort would assist in solving the problem of
+"stale/old" data as well as improve standards and consistency.
+
+This idea does contain potential draw backs in that it requires continual
+over site to ensure quality standards are being met. With a potentially large
+amounts of contributions coming in, if standards are not met the dataset could
+become "polluted" quickly.
+
 __Types of similar data__
 
 I wrote a recursive algorithm to count the variations of compound k attribute
@@ -303,8 +321,12 @@ Results:
 | service     | 7         |
 | seamark     | 7         |
 
-Note: It is interesting to note the amount of GIS data present in this data set. It ranks as the second most common k value and contains the second most number of variations. This could be due to the number of Universities in Boston who teach GIS classes.
-
+#####Adding gamification to incentivize quality of submission
+In the analysis below roughly 63% of users submitting to the dataset add 10 or
+fewer contributions. Rather than focus on frequency of submission, it would be
+valuable to incentivize the quality of submission. By recognizing and affirming
+users for the quality and inclusion of "must have" data in each submission,
+each contribution becomes more meaningful both to the user and to the dataset.
 
 __Number of Contributions Per User__
 
@@ -338,8 +360,6 @@ db.somer.aggregate([
 | 143             | ~25%       | 1             |
 | 295             | ~50%       | <= 5          |
 | 365             | ~63%       | <= 10         |
-
-
 
 ###Resources
 All resources used/referenced are listed in the file resources.txt.
