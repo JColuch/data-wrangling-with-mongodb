@@ -1,62 +1,70 @@
 Data Wrangling with MongoDB
 =====================
-###Nanodegree Project
-School: Udacity
+###Udacity Nanodegree Project
+-----------------------------
+__Program:__ Data Analyst Nanodegree
 
-Program: Data Analyst Nanodegree
+__Project:__ 2 of 5
 
-Project #2
+__Supporting course(s):__
+* [Data Wrangling with MongoDB](https://www.udacity.com/course/viewer#!/c-ud032)
 
-Supporting course(s):
+####Project Overview
+You will choose any area of the world in https://www.openstreetmap.org and use
+data munging techniques, such as assessing the quality of the data for validity,
+accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap
+data for a part of the world that you care about.
 
-[Data Wrangling with MongoDB](https://www.udacity.com/course/viewer#!/c-ud032)
-
-###Project Overview
-You will choose any area of the world in https://www.openstreetmap.org and use data munging techniques, such as assessing the quality of the data for validity, accuracy, completeness, consistency and uniformity, to clean the OpenStreetMap data for a part of the world that you care about.
-
-###Project Depencies
+####Project Depencies
 Python 2.7x
 
-###Final Project Review
+###Final Project Report
 
-###Task 1: Lesson 6 Programming Exercises
+####Task 1: Lesson 6 Programming Exercises
 Lesson 6 programming exercise solutions can be found in the lessons directory.
 
-###Task 2: Process Dataset
-Map area: Somerville, Massachusetts, United States
+####Task 2: Process Dataset
+__Map area:__ Somerville, Massachusetts, United States
 
-OpenStreetMap: [View Map](https://www.openstreetmap.org/relation/1933746#map=14/42.3954/-71.1037)
+__OpenStreetMap:__ [View Map](https://www.openstreetmap.org/relation/1933746#map=14/42.3954/-71.1037)
 
-Download source: [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.3681,-71.0645,42.4228)
+__Download source:__ [Overpass API](http://overpass-api.de/api/map?bbox=-71.1429,42.3681,-71.0645,42.4228)
 
-###Task 3: Document Findings
-####Data Overview
-#####File sizes
+####Task 3: Document Findings
+#####Data Overview
+__File sizes__
 * Size of XML file: 133.4 MB
 * Size of JSON file: 150.7 MB
 
 Note: A sample of the XML OSM data is available: finalproject/data/sample.osm
 
-#####Reason for Selection
-My two younger brothers attend Tufts University in Somerville, MA. I often visit and thought the dense urban neighborhood would be interesting to review.
+__Reason for Selection__
 
-#####XML Data Overview
+My two younger brothers attend Tufts University in Somerville, MA. I often visit
+and thought the dense urban neighborhood would be interesting to review.
+
+__XML Data Overview__
+
 Note: I wrote 4 modules to assist in data review and transformation:
 * streetauditor.py
 * summarize.py
 * tagauditor.py
 * transformer.py
 
-######Tag element "K" attribute analysis
-I wrote a recursive algorithm to parse compund k attribute values (multple words separated by a ":") found in "tag" elements.
+__Tag element "K" attribute analysis__
 
-This breakdown provides an interesting look into the type and frequency of data provided in the "tag" element.
+I wrote a recursive algorithm to parse compund k attribute values (multple words
+separated by a ":") found in "tag" elements.
+
+This breakdown provides an interesting look into the type and frequency of data
+provided in the "tag" element.
 
 Note: the "root" property is the frequency count for the parent key.
 
 See the k attribute analysis file in: finalprojects/data/k-breakdown.json
 
-######Top Level XML Elements
+__Top Level XML Elements__
+
 Module: summarize.py
 
 Code:
@@ -79,7 +87,8 @@ Results:
 }
 ```
 
-######Number of Unique Contributing Users
+__Number of Unique Contributing Users__
+
 Module: summarize.py
 
 Code:
@@ -89,28 +98,32 @@ summarize.get_number_of_contributors(OSM_FILE)
 Result: 577
 
 #####MongoDB Data Overview
-######Number of documents uploaded
+__Number of documents uploaded__
+
 MongoDB Query:
 ```
 db.somer.count()
 ```
 Result: 692535
 
-######Number of nodes
+__Number of nodes__
+
 MongoDB Query:
 ```
 db.somer.find( { 'type': 'node' } ).count()
 ```
 Result: 596878
 
-######Number of ways
+__Number of ways__
+
 MongoDB Query:
 ```
 db.somer.find( { 'type': 'way' } ).count()
 ```
 Result: 95532
 
-#####Top 5 Contributing Users
+__Top 5 Contributing Users__
+
 Query:
 ```
 db.somer.aggregate([
@@ -129,7 +142,8 @@ Result:
 | ingalls_imports   |  29064   |
 | morganwahl        |  27541   |
 
-######Top 10 amenity types:
+__Top 10 amenity types__
+
 MongoDB Query:
 ```
 db.somer.aggregate([
@@ -153,7 +167,8 @@ Result:
 | cafe             | 85       |
 | university       | 77       |
 
-######Top 10 Cuisine Types:
+__Top 10 Cuisine Types__
+
 MongoDB Query:
 ```
 db.somer.aggregate([
@@ -181,7 +196,8 @@ Results:
 #####Problem #1: Street Names
 Inconsistent abbreviations for streetnames exist in the data set.
 
-######Examples:
+__Examples__
+
 For "Street" the following abbreviations were used:
 * "St"
 * "st"
@@ -193,12 +209,16 @@ For "Avenue" the following abbreviations were used:
 * "Ave."
 * "Ave"
 
-To resolve these inconsistencies I utilized the module streetauditor.py to normalize street names.
+To resolve these inconsistencies I utilized the module streetauditor.py to
+normalize street names.
 
 #####Problem #2: Outdated Data
-Somerville is a densely nested active area surrounded by colleges and universities. Construction is continous and local businesses rise and fall. With this turnover, it is important to have "fresh" data. See below for analysis:
+Somerville is a densely nested active area surrounded by colleges and
+universities. Construction is continous and local businesses rise and fall.
+With this turnover, it is important to have "fresh" data. See below for
+analysis:
 
-Total number of nodes with a timestamp: 
+Total number of nodes with a timestamp:
 
 Query:
 ```
@@ -220,12 +240,17 @@ db.somer.find( { "created.timestamp" : { "$gte" : "2015-01-01T00:00:00Z" } } )
 | 2013          | 143707          | 20.75 %    |
 
 
-The table above shows that only a fraction of data is current within the past year. Going back a full two years only provides ~20% of the data. Flip that around ~80% of the map data is more than two years old and may be no longer useful.
+The table above shows that only a fraction of data is current within the past
+year. Going back a full two years only provides ~20% of the data. Flip that
+around ~80% of the map data is more than two years old and may be no longer
+useful.
 
-###Task 4. Additional Ideas
+####Task 4. Additional Ideas
 
-#####Types of similar data
-I wrote a recursive algorithm to count the variations of compound k attribute values in "tag" elements.
+__Types of similar data__
+
+I wrote a recursive algorithm to count the variations of compound k attribute
+values in "tag" elements.
 
 Example:
 * addr:street
@@ -233,9 +258,11 @@ Example:
 
 Above "addr" would be reported as having two variations and a count of two.
 
-I uploaded the summary data (see file data/k-summary.json) into MongoDB and performed a query to identify the most variable k values and most popular.
+I uploaded the summary data (see file data/k-summary.json) into MongoDB and
+performed a query to identify the most variable k values and most popular.
 
-######Top 10 most frequently occurring k values
+__Top 10 most frequently occurring k values__
+
 MongoDB query:
 ```
 db.ksum.find({ }, { "_id" : 0 } ).sort( { "count" : -1 } ).limit( 10 )
@@ -255,7 +282,8 @@ Result:
 | condition   | 1          | 5883   |
 | width       | 1          | 5770   |
 
-######Top 10 K values with the most variations
+__Top 10 K values with the most variations__
+
 MongoDB query:
 ```
 db.ksum.find({ }, { "_id" : 0 } ).sort( { "variations" : -1 } ).limit( 10 )
@@ -278,7 +306,8 @@ Results:
 Note: It is interesting to note the amount of GIS data present in this data set. It ranks as the second most common k value and contains the second most number of variations. This could be due to the number of Universities in Boston who teach GIS classes.
 
 
-#####Number of Contributions Per User
+__Number of Contributions Per User__
+
 MongoDB Query:
 ```
 db.somer.aggregate([
@@ -289,9 +318,12 @@ db.somer.aggregate([
 Result:
 Avg. number of contributions per user: ~1238.8
 
-This average is very high. When observing the top 10 contributors have a range from ~370000 to 5325. This indicates that we have a skewed data set with a few outliers on the upper end of the distribution that are pulling our average up.
+This average is very high. When observing the top 10 contributors have a range
+from ~370000 to 5325. This indicates that we have a skewed data set with a few
+outliers on the upper end of the distribution that are pulling our average up.
 
-Running variations of the following query shows us that of the 577 unique contributors the majority of them submitted ten or fewer times.
+Running variations of the following query shows us that of the 577 unique
+contributors the majority of them submitted ten or fewer times.
 
 ```
 db.somer.aggregate([
@@ -301,13 +333,11 @@ db.somer.aggregate([
 ])
 ```
 
-| Number of users | % of users | Contributions | 
+| Number of users | % of users | Contributions |
 | --------------- | ---------- | ------------- |
 | 143             | ~25%       | 1             |
 | 295             | ~50%       | <= 5          |
 | 365             | ~63%       | <= 10         |
-
-
 
 
 
