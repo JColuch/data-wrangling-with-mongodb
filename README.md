@@ -247,7 +247,7 @@ useful.
 
 ####Task 4. Additional Ideas
 
-#####Partner with local Universities and Government Organizations
+####Partner with local Universities and Government Organizations
 In the analysis below there is a significant amount of GIS data present in this
 data set. GIS data ranks as the second most common k value and contains the
 second most number of variations. This could be due to the number of
@@ -321,7 +321,7 @@ Results:
 | service     | 7         |
 | seamark     | 7         |
 
-#####Adding gamification to incentivize quality of submission
+####Adding gamification to incentivize quality of submission
 In the analysis below roughly 63% of users submitting to the dataset add 10 or
 fewer contributions. Rather than focus on frequency of submission, it would be
 valuable to incentivize the quality of submission. By recognizing and affirming
